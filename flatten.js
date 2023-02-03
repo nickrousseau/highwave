@@ -19,22 +19,23 @@ const assertArraysEqual = function (array1, array2) {
   }
 };
 
-const without = function (source, itemsToRemove) {
-  let result = source;
-
-  for (let i = 0; i < source.length; i++) {
-    for (let j = 0; j < itemsToRemove.length; j++) {
-    if (source[i] === itemsToRemove[j]) {
-      result.splice(i, 1);
+const flatten = function (array) {
+  result = [];
+  for (let i = 0; i < array.length; i++) {
+    if (Array.isArray(array[i])) {
+      for (let j = 0; j < array[i].length; j++) {
+        result.push(array[i][j]);
+      }
+    } else {
+      result.push(array[i]);
     }
   }
-}
+
   return result;
 };
 
-const words = ["hello", "world", "lighthouse"];
-const newArray = without(words, ["lighthouse"]);
+console.log(flatten([1, 2, [3, 4], 5, [6]]));
 
-assertArraysEqual(words, ["hello", "world", "lighthouse"]);
-assertArraysEqual(newArray, ["hello", "world", "lighthouse"]);
-
+const flattenedArray = flatten([1, 2, [3, 4], 5, [6]]);
+assertArraysEqual(flattenedArray, [1, 2, [3, 4], 5, [6]]);
+assertArraysEqual(flattenedArray, [1, 2, 3, 4, 5, 6]);
