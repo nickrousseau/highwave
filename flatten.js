@@ -30,7 +30,6 @@ const flatten = function (array) {
       result.push(array[i]);
     }
   }
-
   return result;
 };
 
