@@ -33,12 +33,8 @@ const letterPositions = function (sentence) {
   return results;
 };
 
-console.log(letterPositions("touch"));
+console.log(letterPositions("hello"));
 
-const line = "reach";
-let lineWithPositions = letterPositions(line);
-assertArraysEqual(lineWithPositions["r"], [0]);
-assertArraysEqual(lineWithPositions["e"], [1]);
-assertArraysEqual(lineWithPositions["a"], [2]);
-assertArraysEqual(lineWithPositions["c"], [3]);
-assertArraysEqual(lineWithPositions["h"], [4]);
+assertArraysEqual(letterPositions("hello").e, [1]);
+assertArraysEqual(letterPositions("hello").h, [0]);
+assertArraysEqual(letterPositions("hello").l, [2, 3]);
