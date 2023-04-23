@@ -22,16 +22,20 @@ const assertArraysEqual = function (array1, array2) {
 const middle = function (inputArray) {
   const middleElements = [];
 
-  for (let k = 0; k < inputArray.length; k++) {
-    if (inputArray.length % 2 === 0) {
-      if (k === inputArray.length / 2 - 1) {
-        middleElements.push(inputArray[k]);
-      } else if (k === inputArray.length / 2) {
-        middleElements.push(inputArray[k]);
-      }
-    } else if (inputArray.length % 2 !== 0) {
-      if (k === inputArray.length / 2 - 0.5) {
-        middleElements.push(inputArray[k]);
+  if (inputArray.length <= 2) {
+    return middleElements;
+  } else {
+    for (let k = 0; k < inputArray.length; k++) {
+      if (inputArray.length % 2 === 0) {
+        if (k === inputArray.length / 2 - 1) {
+          middleElements.push(inputArray[k]);
+        } else if (k === inputArray.length / 2) {
+          middleElements.push(inputArray[k]);
+        }
+      } else if (inputArray.length % 2 !== 0) {
+        if (k === inputArray.length / 2 - 0.5) {
+          middleElements.push(inputArray[k]);
+        }
       }
     }
   }
@@ -45,3 +49,9 @@ assertArraysEqual(middleArray, [3, 4]);
 
 const midArray = middle([1, 2, 3]);
 assertArraysEqual(midArray, [2]);
+
+const midArray2 = middle([1, 2, 3, 4, 5, 6, 7, 8]);
+assertArraysEqual(midArray2, [4, 5]);
+
+const midArray3 = middle([1]);
+assertArraysEqual(midArray3, []);
