@@ -24,17 +24,16 @@ const without = function (source, itemsToRemove) {
 
   for (let i = 0; i < source.length; i++) {
     for (let j = 0; j < itemsToRemove.length; j++) {
-    if (source[i] === itemsToRemove[j]) {
-      result.splice(i, 1);
+      if (source[i] === itemsToRemove[j]) {
+        result.slice(i);
+      }
     }
   }
-}
   return result;
 };
 
 const words = ["hello", "world", "lighthouse"];
 const newArray = without(words, ["lighthouse"]);
-
 assertArraysEqual(words, ["hello", "world", "lighthouse"]);
 assertArraysEqual(newArray, ["hello", "world", "lighthouse"]);
-
+assertArraysEqual(newArray, ["hello", "world"]);
