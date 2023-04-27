@@ -38,3 +38,11 @@ console.log(letterPositions("hello"));
 assertArraysEqual(letterPositions("hello").e, [1]);
 assertArraysEqual(letterPositions("hello").h, [0]);
 assertArraysEqual(letterPositions("hello").l, [2, 3]);
+
+console.log(letterPositions("bjork is mother"));
+
+assertArraysEqual(letterPositions("bjork is mother").b, [0]);
+assertArraysEqual(letterPositions("bjork is mother").j, [1]);
+assertArraysEqual(letterPositions("bjork is mother").o, [2, 10]);
+assertArraysEqual(letterPositions("bjork is mother").r, [3, 14]);
+assertArraysEqual(letterPositions("bjork is mother").k, [4]);
